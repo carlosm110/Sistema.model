@@ -9,7 +9,7 @@ namespace Sistema.API
         {
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddDbContext<AppDbContext>(options =>
-                options.UseNpgsql(builder.Configuration.GetConnectionString("AppDbContext")));
+                options.UseOracle(builder.Configuration.GetConnectionString("AppDbContext")));
 
             // Add services to the container.
 

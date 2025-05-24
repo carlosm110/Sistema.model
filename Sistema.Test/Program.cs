@@ -77,7 +77,7 @@ namespace Sistema.Test
                 Nombre = "Expo Innovación 2025",
                 Fecha = new DateTime(2025, 10, 10),
                 Tipo = "Exposición",
-                EspacioCodigo = 4
+                EspacioCodigo = 21
             });
 
             //Crud<Autor>.Update(autor.Codigo, autor);
@@ -96,8 +96,8 @@ namespace Sistema.Test
             var eventoponente = Crud<EventoPonente>.Create(new EventoPonente
             {
                 Codigo = 0,
-                EventoCodigo = 4,
-                PonenteCodigo = 4
+                EventoCodigo = 1,
+                PonenteCodigo = 22
             });
 
             //Crud<Autor>.Update(autor.Codigo, autor);
@@ -139,8 +139,8 @@ namespace Sistema.Test
                 Codigo = 0,
                 Estado = "Confirmada",
                 FechaInscripcion = new DateTime(2025, 7, 20),
-                EventoCodigo = 4,
-                ParticipanteCodigo = 4
+                EventoCodigo = 1,
+                ParticipanteCodigo = 21
             });
 
             //Crud<Autor>.Update(autor.Codigo, autor);
@@ -161,8 +161,8 @@ namespace Sistema.Test
                 Codigo = 0,
                 HoraInicio = new DateTime(2025, 10, 10, 9, 0, 0),
                 HoraFin = new DateTime(2025, 10, 10, 12, 30, 0),
-                EventoCodigo = 4,
-                EspacioCodigo = 4
+                EventoCodigo = 1,
+                EspacioCodigo = 21
             });
 
             //Crud<Autor>.Update(autor.Codigo, autor);
@@ -183,7 +183,7 @@ namespace Sistema.Test
                 Codigo = 0,
                 FechaEmision = new DateTime(2023, 9, 18),
                 UrlDocumento = "https://certificados.utpl.edu/cert004",
-                InscripcionCodigo = 4
+                InscripcionCodigo = 21
             });
 
             //Crud<Editorial>.Update(santillana.Codigo, santillana);
@@ -202,10 +202,10 @@ namespace Sistema.Test
             var pago = Crud<Pago>.Create(new Pago
             {
                 Codigo = 0,
-                Monto = 310.00,
+                Monto = 310,
                 FechaPago = new DateTime(2024, 4, 2),
                 MetodoPago = "Transferencia",
-                InscripcionCodigo = 4
+                InscripcionCodigo = 21
             });
 
             //Crud<Autor>.Update(autor.Codigo, autor);

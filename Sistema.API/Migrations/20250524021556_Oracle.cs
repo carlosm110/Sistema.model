@@ -1,13 +1,12 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
 namespace Sistema.API.Migrations
 {
     /// <inheritdoc />
-    public partial class pdAdmin : Migration
+    public partial class Oracle : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,11 +15,11 @@ namespace Sistema.API.Migrations
                 name: "Espacios",
                 columns: table => new
                 {
-                    Codigo = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Nombre = table.Column<string>(type: "text", nullable: false),
-                    Ubicacion = table.Column<string>(type: "text", nullable: false),
-                    Capacidad = table.Column<int>(type: "integer", nullable: false)
+                    Codigo = table.Column<int>(type: "NUMBER(10)", nullable: false)
+                        .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
+                    Nombre = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
+                    Ubicacion = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
+                    Capacidad = table.Column<int>(type: "NUMBER(10)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -31,11 +30,11 @@ namespace Sistema.API.Migrations
                 name: "Participantes",
                 columns: table => new
                 {
-                    Codigo = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Nombre = table.Column<string>(type: "text", nullable: false),
-                    Email = table.Column<string>(type: "text", nullable: false),
-                    DocumentoIdentidad = table.Column<string>(type: "text", nullable: false)
+                    Codigo = table.Column<int>(type: "NUMBER(10)", nullable: false)
+                        .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
+                    Nombre = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
+                    Email = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
+                    DocumentoIdentidad = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -46,11 +45,11 @@ namespace Sistema.API.Migrations
                 name: "Ponentes",
                 columns: table => new
                 {
-                    Codigo = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Nombre = table.Column<string>(type: "text", nullable: false),
-                    Especialidad = table.Column<string>(type: "text", nullable: false),
-                    Institucion = table.Column<string>(type: "text", nullable: false)
+                    Codigo = table.Column<int>(type: "NUMBER(10)", nullable: false)
+                        .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
+                    Nombre = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
+                    Especialidad = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
+                    Institucion = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -61,12 +60,12 @@ namespace Sistema.API.Migrations
                 name: "Eventos",
                 columns: table => new
                 {
-                    Codigo = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Nombre = table.Column<string>(type: "text", nullable: false),
-                    Fecha = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    Tipo = table.Column<string>(type: "text", nullable: false),
-                    EspacioCodigo = table.Column<int>(type: "integer", nullable: false)
+                    Codigo = table.Column<int>(type: "NUMBER(10)", nullable: false)
+                        .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
+                    Nombre = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
+                    Fecha = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: false),
+                    Tipo = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
+                    EspacioCodigo = table.Column<int>(type: "NUMBER(10)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -83,10 +82,10 @@ namespace Sistema.API.Migrations
                 name: "EventosPonentes",
                 columns: table => new
                 {
-                    Codigo = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    EventoCodigo = table.Column<int>(type: "integer", nullable: false),
-                    PonenteCodigo = table.Column<int>(type: "integer", nullable: false)
+                    Codigo = table.Column<int>(type: "NUMBER(10)", nullable: false)
+                        .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
+                    EventoCodigo = table.Column<int>(type: "NUMBER(10)", nullable: false),
+                    PonenteCodigo = table.Column<int>(type: "NUMBER(10)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -109,12 +108,12 @@ namespace Sistema.API.Migrations
                 name: "Inscripciones",
                 columns: table => new
                 {
-                    Codigo = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Estado = table.Column<string>(type: "text", nullable: false),
-                    FechaInscripcion = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    EventoCodigo = table.Column<int>(type: "integer", nullable: false),
-                    ParticipanteCodigo = table.Column<int>(type: "integer", nullable: false)
+                    Codigo = table.Column<int>(type: "NUMBER(10)", nullable: false)
+                        .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
+                    Estado = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
+                    FechaInscripcion = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: false),
+                    EventoCodigo = table.Column<int>(type: "NUMBER(10)", nullable: false),
+                    ParticipanteCodigo = table.Column<int>(type: "NUMBER(10)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -137,12 +136,12 @@ namespace Sistema.API.Migrations
                 name: "Sesiones",
                 columns: table => new
                 {
-                    Codigo = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    HoraInicio = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    HoraFin = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    EventoCodigo = table.Column<int>(type: "integer", nullable: false),
-                    EspacioCodigo = table.Column<int>(type: "integer", nullable: false)
+                    Codigo = table.Column<int>(type: "NUMBER(10)", nullable: false)
+                        .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
+                    HoraInicio = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: false),
+                    HoraFin = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: false),
+                    EventoCodigo = table.Column<int>(type: "NUMBER(10)", nullable: false),
+                    EspacioCodigo = table.Column<int>(type: "NUMBER(10)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -165,11 +164,11 @@ namespace Sistema.API.Migrations
                 name: "Certificados",
                 columns: table => new
                 {
-                    Codigo = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    FechaEmision = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    UrlDocumento = table.Column<string>(type: "text", nullable: false),
-                    InscripcionCodigo = table.Column<int>(type: "integer", nullable: false)
+                    Codigo = table.Column<int>(type: "NUMBER(10)", nullable: false)
+                        .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
+                    FechaEmision = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: false),
+                    UrlDocumento = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
+                    InscripcionCodigo = table.Column<int>(type: "NUMBER(10)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -186,12 +185,12 @@ namespace Sistema.API.Migrations
                 name: "Pagos",
                 columns: table => new
                 {
-                    Codigo = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Monto = table.Column<double>(type: "double precision", nullable: false),
-                    FechaPago = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    MetodoPago = table.Column<string>(type: "text", nullable: false),
-                    InscripcionCodigo = table.Column<int>(type: "integer", nullable: false)
+                    Codigo = table.Column<int>(type: "NUMBER(10)", nullable: false)
+                        .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
+                    Monto = table.Column<int>(type: "NUMBER(10)", nullable: false),
+                    FechaPago = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: false),
+                    MetodoPago = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
+                    InscripcionCodigo = table.Column<int>(type: "NUMBER(10)", nullable: false)
                 },
                 constraints: table =>
                 {

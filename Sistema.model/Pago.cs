@@ -11,7 +11,7 @@ namespace Sistema.model
     public class Pago
     {
         [Key] public int Codigo { get; set; }
-        public double Monto { get; set; }
+        public int Monto { get; set; }
         public DateTime FechaPago { get; set; }
         public string MetodoPago { get; set; } // Ej: Tarjeta, Transferencia
         [ForeignKey("InscripcionCodigo")]
